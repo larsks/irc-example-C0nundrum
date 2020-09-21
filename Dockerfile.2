@@ -1,0 +1,6 @@
+FROM alpine:latest
+
+RUN apk add --update nginx bash
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off; error_log /var/log/user/nginx-error.log debug;"]
